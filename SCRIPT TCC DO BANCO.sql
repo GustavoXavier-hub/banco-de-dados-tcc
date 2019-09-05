@@ -73,10 +73,12 @@ cnh_prestador numeric (7,2));
  go
  /*criacao da tabela contrato_serviço */
  create table contrato_serviço
- (id__tp_serv int constraint tp_serv_fk05 references tp_serv (id__tp_serv),
+ (/*id__tp_serv int constraint tp_serv_fk05 references tp_serv (id__tp_serv),
  id_tp_pgto int constraint tp_pgto_fk06 references tp_pgto (id_tp_pessoa),
  id_clie int constraint cliente_fk07 references cliente (id_clie),
  id_prestador int constraint prestador_id_fk08 references prestador (id_prestador),
+ */
+ id_contrato_Serv  int identity not null, 
  cubagem_serv numeric (7,4) not null,
  dat_serv date not null,
  vl_pgto numeric (10,5)not null );
