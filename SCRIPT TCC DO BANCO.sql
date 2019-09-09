@@ -4,7 +4,7 @@ create database FAST_201902
 create table cliente
 (id_clie int identity not null primary key,
 nm_clie  varchar(45) not null,
-dat_nas_clie date not null,
+dat_nas_clie datetime not null,
 tele_cont_clie numeric(7,5) not null,
 end_clie varchar (45) not null,
 sex_clie varchar (20) not null);
@@ -64,7 +64,7 @@ cnh_prestador numeric (7,2));
  marca_ve varchar(20) not null,
  doc_ve  numeric (8,2) not null,
  modelo_ve varchar (45) not null,
- ano_ve date not null,
+ ano_ve datetime not null,
  km_ve numeric (8,5) not null,
  status_ve varchar(45) not null,
  rastreador_ve varchar (20) not null,
@@ -72,18 +72,40 @@ cnh_prestador numeric (7,2));
  
  go
  /*criacao da tabela contrato_serviço */
- create table contrato_serviço
- (/*id__tp_serv int constraint tp_serv_fk05 references tp_serv (id__tp_serv),
- id_tp_pgto int constraint tp_pgto_fk06 references tp_pgto (id_tp_pessoa),
+ create table contrato_servico
+ (id__tp_serv int constraint tp_serv_fk075 references tp_serv (id__tp_serv),
+ id_tp_pgto int constraint tp_pgto_fk06 references tp_pgto (id_tp_pgto),
  id_clie int constraint cliente_fk07 references cliente (id_clie),
  id_prestador int constraint prestador_id_fk08 references prestador (id_prestador),
- */
  id_contrato_Serv  int identity not null, 
  cubagem_serv numeric (7,4) not null,
- dat_serv date not null,
+ dat_serv datetime not null,
  vl_pgto numeric (10,5)not null );
  go
  
+ /*alter table da tabela contrato_serviço
+
+ alter table contrato_serviço
+ add  id__tp_serv  int  not null 
+
+ 
+ alter table contrato_serviço
+ add  id_tp_pgto   int  not null 
+
+ alter table contrato_serviço
+ add  id_clie   int  not null 
+
+ alter table contrato_serviço
+ add  id_prestador   int  not null 
+ ALTER TABLE NomeTabela
+
+ ALTER TABLE contrato_serviço
+ADD CONSTRAINT tp_serv_
+FOREIGN KEY (id__tp_serv) REFERENCES contrato_serviço(id__tp_serv);
+
+ALTER TABLE contrato_serviço
+ADD CONSTRAINT con_serv PRIMARY KEY (id_contrato_Serv)
+*/
  /* select das tabelas */
  select *from cliente
  go
@@ -101,11 +123,13 @@ cnh_prestador numeric (7,2));
  go
  select *from veiculo
  go
+ select *from contrato_serviço
+
 
  /* insert da tabela cliente */
 
   insert into cliente(nm_clie,dat_nas_clie,tele_cont_clie,end_clie,sex_clie)
-       values ('Carlos Roberto',26-08-2019,8088-8888,'parque edu chaves','Masculino');
+       values ('Carlos Roberto','2018/06/12 18:00:00',0, 'parque edu chaves','Masculino');
 	          
  
  insert into tp_pgto  (,tp_pgto)
