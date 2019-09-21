@@ -35,6 +35,7 @@ nm_emp varchar(20) not null,
 cnpj_emp numeric(7,5)   not null);
 
 go
+
 /*criacao da tabela pessoa */
 create table pessoa 
 (id_func int identity not null primary key,
@@ -132,12 +133,13 @@ ADD CONSTRAINT con_serv PRIMARY KEY (id_contrato_Serv)
        values ('Carlos Roberto','2018/06/12 18:00:00',0, 'parque edu chaves','Masculino');
 	          
  
- insert into tp_pgto  (,tp_pgto)
+ insert into tp_pgto  (dsc_tp_pgto)
 values ( 'Debito'),
        ('Credito');
 
-insert into tp_pessoa (id_tp_pessoa,tp_pessoa)
-values ('Juridica'),	   
+insert into tp_pessoa (dsc_tp_pessoa)
+values ('Juridica'),
+       ('fisica');	   
  
  
  
