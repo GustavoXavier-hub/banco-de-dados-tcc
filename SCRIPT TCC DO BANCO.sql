@@ -132,16 +132,23 @@ ADD CONSTRAINT con_serv PRIMARY KEY (id_contrato_Serv)
   insert into cliente(nm_clie,dat_nas_clie,tele_cont_clie,end_clie,sex_clie)
        values ('Carlos Roberto','2018/06/12 18:00:00',0, 'parque edu chaves','Masculino');
 	          
- 
+ /* insert da tabela tp_pgto */
+
  insert into tp_pgto  (dsc_tp_pgto)
 values ( 'Debito'),
        ('Credito');
 
+	          
+ /* insert da tabela tp_pessoa */
 insert into tp_pessoa (dsc_tp_pessoa)
 values ('Juridica'),
        ('fisica');	   
- 
- 
+
+ /* insert  da tablea empresa */
+
+ insert into empresa (nm_emp,cnpj_emp)
+ values ('sdadsasdsa',8);
+
  
 
 
