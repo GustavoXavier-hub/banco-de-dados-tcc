@@ -144,12 +144,31 @@ insert into tp_pessoa (dsc_tp_pessoa)
 values ('Juridica'),
        ('fisica');	   
 
- /* insert  da tablea empresa */
+ /* insert  da tabela empresa */
 
  insert into empresa (nm_emp,cnpj_emp)
  values ('sdadsasdsa',8);
 
  
+ /* insert  da tabela pessoa */
+
+ insert into pessoa (nm_func,dat_nas_func,cpf_func,cp_func,id_emp,id_tp_pessoa,rg_func)
+ values ('carlos','2018/06/12 18:00:00',0,1,2,3,4);
+
+/* insert da tabela prestador */
+
+insert into prestador (cnh_prestador)
+values (0)
+ 
+ /* insert da tabela veiculo */
+
+ insert into  veiculo (pl_ve,cor_ve,marca_ve,doc_ve,modelo_ve,ano_ve,km_ve,status_ve,rastreador_ve,cod_rastreador_ve)
+ values (01,'azul','honda',02,'Conversivel','2018/06/12 18:00:00',03,'Ativo','Desligado',04)
+
+ /* insert da tabela contrato_serviço */
+
+ insert into contrato_servico (cubagem_serv,dat_serv,vl_pgto)
+values ()
 
 
 /* drop das tabelas */
