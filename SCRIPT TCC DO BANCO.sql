@@ -13,7 +13,8 @@ go
 /*criacao da tabela tp_pgto */
 create table tp_pgto
 (id_tp_pgto int  not null primary key,
-dsc_tp_pgto varchar(15));  
+dsc_tp_pgto varchar(15),
+ id_cartao int constraint id_cartao_id_fk09 references cartao (id_cartao));  
   
 go
 /*criacao da tabela tp_serv */
@@ -64,10 +65,6 @@ data_vencimento datetime not null,
 codigo_verificacao int not null,
 numero_cartao numeric(16)not null); 
  
- 
- 
- )
- 
  /*criacao da tabela veiculo */
  create table veiculo
  (id_ve int  not null primary key,
@@ -89,7 +86,7 @@ numero_cartao numeric(16)not null);
  (id__tp_serv int constraint tp_serv_fk075 references tp_serv (id__tp_serv),
  id_tp_pgto int constraint tp_pgto_fk06 references tp_pgto (id_tp_pgto),
  id_clie int constraint cliente_fk07 references cliente (id_clie),
- id_prestador int constraint prestador_id_fk08 references prestador (id_prestador),
+ id_prestador int constraint prestador_id_fk010 references prestador (id_prestador),
  id_func int constraint pessoa_id_fk05 references pessoa (id_func),
  id_contrato_Serv  int  not null, 
  cubagem_serv numeric (7,4) not null,
@@ -150,7 +147,8 @@ ADD CONSTRAINT con_serv PRIMARY KEY (id_contrato_Serv)
  select *from veiculo
  go
  select *from contrato_serviço
-
+ go
+ select *from cartao
 
  /* insert da tabela cliente */
 
@@ -159,9 +157,9 @@ ADD CONSTRAINT con_serv PRIMARY KEY (id_contrato_Serv)
 go	          
  /* insert da tabela tp_pgto */
 
- insert into tp_pgto  (id_tp_pgto,dsc_tp_pgto)
-values ( 1,'Debito'),
-       (2,'Credito');
+ insert into tp_pgto  (id_tp_pgto,dsc_tp_pgto,id_cartao)
+values ( 1,'Debito',1),
+       (2,'Credito',1);
 go
 	          
  /* insert da tabela tp_serv */
@@ -180,19 +178,19 @@ go
  /* insert  da tabela empresa */
 
  insert into empresa (id_emp,nm_emp,cnpj_emp)
- values (1,'sdadsasdsa',9);
+ values (5,'sdadsasdsa',9);
 
  go
  /* insert  da tabela pessoa */
 
  insert into pessoa (id_func,id_tp_pessoa,id_emp,nm_func,dat_nas_func,rg_func,cpf_func,cp_func)
- values  (1,1,1,'carlos','2018/06/12 18:00:00',2,2,4)
+ values  (7,1,1,'carlos','2018/06/12 18:00:00',2,2,4)
  (/*1,1,'carlos','2018/06/12 18:00:00',00,01,02*/);
  go
 /* insert da tabela prestador */
 
 insert into prestador (id_prestador,id_func,cnh_prestador)
-values (8,1,0)
+values (6,1,0)
  go
  /* insert da tabela veiculo */
 
@@ -204,12 +202,12 @@ values (8,1,0)
 
  insert into contrato_servico (id__tp_serv,id_tp_pgto,id_clie,id_prestador,id_func, id_contrato_Serv,cubagem_serv,dat_serv,vl_pgto)
 values 
-(1,1,1,8,1,1,1,'2018/06/12 18:00:00',4);
+(1,1,1,6,1,7,1,'2018/06/12 18:00:00',4);
 
 /* insert da tabela cartao */
 
 insert into cartao (id_cartao,nome_cartao,data_vencimento,codigo_verificacao,numero_cartao)
-values (1,'MasterCard','2019/06/12 12:00:00',1,3 )
+values (1,'MasterCard','2019/06/12 12:00:00',4,3)
 go
 /* drop das tabelas */
 drop table cliente
@@ -226,7 +224,7 @@ drop table pessoa
 
 drop table prestador 
 
-drop table prestador 
+drop table cartao 
 
 drop table veiculo
 
