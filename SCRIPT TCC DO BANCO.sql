@@ -56,6 +56,18 @@ cnh_prestador numeric (7,2));
  
  go
 
+ /*criacao da tabela cartao */
+ create table cartao 
+ (id_cartao int not null primary key,
+ nome_cartao varchar(50) not null,
+data_vencimento datetime not null,
+codigo_verificacao int not null,
+numero_cartao numeric(16)not null); 
+ 
+ 
+ 
+ )
+ 
  /*criacao da tabela veiculo */
  create table veiculo
  (id_ve int  not null primary key,
@@ -194,6 +206,10 @@ values (8,1,0)
 values 
 (1,1,1,8,1,1,1,'2018/06/12 18:00:00',4);
 
+/* insert da tabela cartao */
+
+insert into cartao (id_cartao,nome_cartao,data_vencimento,codigo_verificacao,numero_cartao)
+values (1,'MasterCard','2019/06/12 12:00:00',1,3 )
 go
 /* drop das tabelas */
 drop table cliente
