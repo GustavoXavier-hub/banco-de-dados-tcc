@@ -185,6 +185,7 @@ go
 
  insert into pessoa (id_func,id_tp_pessoa,id_emp,nm_func,dat_nas_func,rg_func,cpf_func,cp_func)
  values  (7,1,1,'carlos','2018/06/12 18:00:00',2,2,4)
+
  (/*1,1,'carlos','2018/06/12 18:00:00',00,01,02*/);
  go
 /* insert da tabela prestador */
